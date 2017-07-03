@@ -8,10 +8,10 @@ exports.question = function(req,res){
 exports.answer = function(req,res){
 	models.Quiz.findAll.succes(function(quiz){
 		if (req.query.respuesta.toLowerCase() === pregunta[0].respuesta){
-		res.render('quizes/answer',{respuesta: "Correcto!"});
+			res.render('quizes/answer',{respuesta: "Correcto!"});
 		} 
-		else		{
-			res.render('quizes/answer',{respuesta: "Inorrecto :("})
+		else{
+			res.render('quizes/answer',{respuesta: "Inorrecto :("});
 		}
-	});	
+	})	
 };
