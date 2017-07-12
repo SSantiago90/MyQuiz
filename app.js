@@ -25,7 +25,6 @@ app.use(partials());
 
 app.use('/', routes);
 
-//callback error functions if routes.js can't handle the request
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
