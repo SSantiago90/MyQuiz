@@ -53,5 +53,3 @@ Temporary Items
 node-modules
 .DS-Store
 npm-debug.log
-quiz.sqlite
-.env
