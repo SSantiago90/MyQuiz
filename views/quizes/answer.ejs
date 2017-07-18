@@ -1,1 +1,7 @@
+<p>Pregunta: <strong><%= quiz.pregunta %></strong></p>
+<p>Tu respuesta: <strong><%= respUsuario %></strong> es . . .</p>
 <h3><%= respuesta %></h3>
+<% if (respuesta === "Inorrecto"){ %>
+	<a href="/quizes/<%= quiz.id %>">Intentar nuevamente!</a>
+<%};%>
+<a href="/quizes/">Volver</a>

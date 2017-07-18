@@ -29,12 +29,26 @@ var Quiz = sequelize.import(path.join(__dirname,'quiz'));
 exports.Quiz = Quiz;
 
 //Inicializar BBDD
-sequelize.sync().success(function(){
-	Quiz.count().success(function(count){
-		Quiz.create({
-			pregunta: 'Capital de Argentina',
-			respuesta: 'buenos aires'
-		}).success(function(){console.log('DB incializada correctamente')});		
-	});
+sequelize.sync().then(function(){
+	Quiz.count().then(function(count){
+		//init ONLY if DDBB is empty
+		if (count === 0){
+			//use ONLY lowercase for answers
+			// work with promises -- .success() is deprecated
+			Quiz.create({
+				pregunta: 'Capital de España',
+				respuesta: 'madrid'
+			});			
+			Quiz.create({
+				pregunta: 'Capital de Italia',
+				respuesta: 'roma'
+			});
+			Quiz.create({
+				pregunta: 'Capital de Argentina',
+				respuesta: 'buenos aires'
+			}).then(function(){console.log('DB initialized with '+ DB_name)});		
+		}
+		else console.log('DB synced correctly with '+ (DB_name? DB_name : 'sqlite'));
+	});		
 });
 

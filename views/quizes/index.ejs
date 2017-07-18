@@ -1,0 +1,8 @@
+<h2>Elegí una pregunta del listado y jugá!"</h2>
+<table>
+<%for(var i=0; i<quizes.length; i++){ %>
+	<tr>
+		<td><a href="/quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta%></a></td>
+	</tr>
+<% } %>
+</table>
