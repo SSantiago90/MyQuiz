@@ -30,3 +30,19 @@ exports.answer = function(req,res){
 		res.render('quizes/answer',{respuesta: "Inorrecto", quiz: req.quiz, respUsuario: usrResp});
 		}
 };	
+//GET new
+exports.new = function(req,res){
+	var tmp_quiz = models.Quiz.build(
+		{pregunta:'ingresar pregunta',respuesta:'ingresar respuesta'}
+	);
+	res.render('quizes/new',{quiz: tmp_quiz});
+};
+//POST create
+exports.create = function(req,res){
+	var quiz = models.Quiz.build(req.body.quiz);
+	//save and then redirect
+	quiz.save({fields: ['pregunta','respuesta']})
+	.then(function(){
+		res.redirect('/quizes');
+	});
+}
