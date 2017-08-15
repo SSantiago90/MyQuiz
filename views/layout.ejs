@@ -23,7 +23,17 @@
 				<% } %>
 				</div>
 		</section>
-		<% } %>		
+		<% } %>	
+		<%if(typeof feedback!== 'undefined') {%>
+		<section class="main feedback">
+			<div id="feedLog">
+				<h5>Hecho!</h5>
+				<% for(var i in feedback){ %>
+					<span><%= feedback[i].msg %></span><br>
+				<% } %>
+				</div>
+		</section>
+		<% } %>			
 		<section>
 			<%- body %>
 		</section>

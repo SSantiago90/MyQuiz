@@ -41,12 +41,7 @@ exports.new = function(req,res){
 exports.create = function(req,res){
 	//doesn't seem to work with last sequelize version -- possible bodyparser bug?
 	//var quiz = models.Quiz.build(req.body.quiz);z
-	console.log("REQ.BODY.QUIZ");
-	console.log(req.body.quiz["pregunta"]);
 	var quiz = models.Quiz.build(req.body.quiz);
-//--------------------------------------------------------------------
-// creo que deberia sacar el "then(err)" y pasar el "error" al CATCH(redirect)
-//--------------------------------------------------------------------
 
 	quiz
 	.validate()
@@ -57,7 +52,40 @@ exports.create = function(req,res){
 	)	
 	.catch(function(err) { 
 		console.log("Error guardando la pregunta");
-		for(var i in err) console.log(err[i]);
 		res.render('quizes/new', {quiz:quiz, errors:err.errors});	
 	});
 }
+
+//GET quizes/:quizId/edit
+exports.edit = function(req,res){
+	var quiz = req.quiz;
+	res.render('quizes/edit', {quiz:quiz});	
+}
+
+
+//PUT quizes/:quizId
+exports.update = function(req,res){
+	req.quiz.pregunta = req.body.quiz.pregunta;
+	req.quiz.respuesta = req.body.quiz.respuesta;
+	req.quiz
+	.validate()
+	.then(function(){
+			req.quiz.save({fields: ['pregunta','respuesta']});
+			res.redirect('/quizes');
+		}
+	)	
+	.catch(function(err) { 
+		console.log('Error guardando cambios');
+		res.render('quizes/edit', {quiz:req.quiz, errors:err.errors});	
+	});
+};
+
+//DEL quizes/quizId
+exports.delete = function(req,res){
+	req.quiz.destroy()
+	.then(function(){			
+			res.redirect('/quizes');
+		}
+	)	
+	.catch(function(err) { next(error)});
+};
