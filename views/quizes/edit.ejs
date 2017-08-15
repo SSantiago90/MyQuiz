@@ -1,0 +1,7 @@
+<h2>Editar Quiz</h2>
+
+<form method='post' action='/quizes/<%= quiz.id%>?_method=put'>
+<%console.log("q" +quiz.id);
+	   %>
+	<% include _form.ejs %>
+</form>
