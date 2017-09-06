@@ -17,5 +17,8 @@ router.get('/quizes/:quizId(\\d+)/edit', 	quizController.edit);
 router.put('/quizes/:quizId(\\d+)', 		quizController.update);
 router.delete('/quizes/:quizId(\\d+)', 		quizController.delete);
 
+router.get('/help', (req,res) =>{
+  res.redirect('https://es.wikipedia.org/wiki/Quizz');
+});
 
 module.exports = router;

@@ -3,18 +3,31 @@
 	<head>
 		<meta charset="utf-8">
 		<title>MyQuiz</title>
-		<link rel='stylesheet' href="/stylesheets/style.css"/>
+		<link rel='stylesheet' href="/build/styles.css"/>
 	</head>
 	<body>
-		<header class="main" id="h1">
-			<h2>myQuiz: El juego de Preguntas!</h2>
-		</header>
-		<nav class="main" id="navbar" role="navigation">
-			<span><a href="/">Inicio</a></span>
-			<span><a href="/quizes">Preguntas</a></span>
-		</nav>		
+		<div class="header">
+			<div class="logo_hd">
+				<a href="/">
+					<img class="nav_logo" src="images/logo.png" alt="MyQuiz Logo">
+				</a>
+			</div>
+			<nav class="main" id="navbar" role="navigation">
+				<ul class="mainnav">
+					<li><a class="nav_link" data-hover="Inicio"href="/">Inicio</a></span></li>
+					<li><a class="nav_link" data-hover="Preguntas"href="/quizes">Preguntas</a></li>
+					<li><a class="nav_link" data-hover="Ayuda"href="/help" target:"_blank">Ayuda</a></li>
+					<li><a class="nav_link login_link" data-hover="Login"href="/">Login</a></li>
+				</ul>
+			</nav>
+		</div>
 		<%if(typeof errors !== 'undefined') {
 		console.log('Layout error');%>
+		<div class="hero">
+			<header class="main" id="h1">
+				<h2>myQuiz: El juego de Preguntas!</h2>
+			</header>
+		</div>
 		<section class="main errors">
 			<div id="errorLog">
 				<h5>¡Error al procesar la solicitud!</h5>
@@ -23,7 +36,7 @@
 				<% } %>
 				</div>
 		</section>
-		<% } %>	
+		<% } %>
 		<%if(typeof feedback!== 'undefined') {%>
 		<section class="main feedback">
 			<div id="feedLog">
@@ -33,12 +46,12 @@
 				<% } %>
 				</div>
 		</section>
-		<% } %>			
+		<% } %>
 		<section>
 			<%- body %>
 		</section>
 		<footer>
-			<a target:"_blank" href="http://es.wikipedia.org/wiki/Quizz">¿Qué es un "Quiz"?</a>
+			MyQuiz Copyright
 		</footer>
 	</body>
 </html>
