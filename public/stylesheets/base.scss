@@ -1,0 +1,23 @@
+*{
+  padding:0px;
+  margin:0px;
+}
+
+body {
+  padding: 10px 0px 0px;
+  font: $base-font;
+}
+
+a {
+  text-decoration: none;
+  color: $link-color;  
+}
+
+.errorLog{
+	color: $error-text;
+	font-size: small;
+}
+
+img {
+  max-height: 100%;
+}

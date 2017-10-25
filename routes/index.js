@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var quizController = require('../controllers/quiz_controller.js');
 var commentController = require('../controllers/comment_controller.js');
+var sessionController = require('../controllers/session_controller.js');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -20,7 +21,10 @@ router.delete('/quizes/:quizId(\\d+)', 		quizController.delete);
 //Comments routes
 router.get('/quizes/:quizId(\\d+)/comments/new', 			commentController.new);
 router.post('/quizes/:quizId(\\d+)/comments',		commentController.create);
-
+//Session routes
+router.get('/login',				sessionController.new);
+router.post('/login',				sessionController.create);
+router.delete('/login',				sessionController.destroy);
 router.get('/help', (req,res) =>{
   res.redirect('https://es.wikipedia.org/wiki/Quizz');
 });

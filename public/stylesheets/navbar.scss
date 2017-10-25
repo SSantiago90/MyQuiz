@@ -1,0 +1,85 @@
+input .hidden{
+  display:none;
+}
+
+#logout:after {
+  position: absolute;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+
+
+.header{
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  height:50px;
+  padding: 2px 15px;
+  background: none;
+}
+
+.header>.logo_hd{
+  max-height:80%;
+}
+
+.header>.navbar{
+ align-self: end;
+}
+
+.mainnav {
+  text-align: right;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.mainnav * {
+  box-sizing: border-box;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+
+.mainnav li{
+  display: inline-block;
+  list-style: outside none none;
+  margin: 0 0.8em;
+  overflow: hidden;
+}
+
+.mainnav a{
+  padding: 0.3em 0.8em;
+  position: relative;
+  display: inline-block;
+  letter-spacing: 1px;
+  margin: 0;
+  text-decoration: none;
+}
+
+.mainnav a:before,
+.mainnav a:after {
+  position: absolute;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+
+.mainnav a:before{
+  bottom: 100%;
+  display: block;
+  height: 3px;
+  width: 100%;
+  content: "";
+}
+
+.mainnav a:after{
+  padding: 0.3em 0.8em;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  content: attr(data-hover);
+  color: white;
+  white-space: nowrap;
+  background-color: $link-color;
+}
+
+.mainnav li:hover a,
+.mainnav .current a {
+  transform: translateY(100%);
+}

@@ -18,7 +18,14 @@
 					<li><a class="nav_link" data-hover="Inicio"href="/">Inicio</a></span></li>
 					<li><a class="nav_link" data-hover="Preguntas"href="/quizes">Preguntas</a></li>
 					<li><a class="nav_link" data-hover="Ayuda"href="/help" target:"_blank">Ayuda</a></li>
-					<li><a class="nav_link login_link" data-hover="Login"href="/">Login</a></li>
+					<% if(!session.user){ %>
+						<li><a class="nav_link login_link" data-hover="Login" href="/login">Login</a></li>
+					<%}else{ %>
+						<li><form class="blank" method="post" action="/login?_method=delete">
+							<input type="text" name="logout" id="logout" value="true" style="display:none" class="hidden"/>
+							<input id="logout-but" class="nav_link login_link" data-hover="Logout" name="Logout" value="Logout" type="submit">
+						</form></li>
+					<% }; %>
 				</ul>
 			</nav>
 		</div>

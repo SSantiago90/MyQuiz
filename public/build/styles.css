@@ -1,0 +1,141 @@
+* {
+  padding: 0px;
+  margin: 0px; }
+
+body {
+  padding: 10px 0px 0px;
+  font: 14px "Baloo Tammudu", cursive, "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+a {
+  text-decoration: none;
+  color: #7700FF; }
+
+.errorLog {
+  color: #ff6611;
+  font-size: small; }
+
+img {
+  max-height: 100%; }
+
+input .hidden {
+  display: none; }
+
+#logout:after {
+  position: absolute;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease; }
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  height: 50px;
+  padding: 2px 15px;
+  background: none; }
+
+.header > .logo_hd {
+  max-height: 80%; }
+
+.header > .navbar {
+  align-self: end; }
+
+.mainnav {
+  text-align: right;
+  text-transform: uppercase;
+  font-weight: 500; }
+
+.mainnav * {
+  box-sizing: border-box;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease; }
+
+.mainnav li {
+  display: inline-block;
+  list-style: outside none none;
+  margin: 0 0.8em;
+  overflow: hidden; }
+
+.mainnav a {
+  padding: 0.3em 0.8em;
+  position: relative;
+  display: inline-block;
+  letter-spacing: 1px;
+  margin: 0;
+  text-decoration: none; }
+
+.mainnav a:before,
+.mainnav a:after {
+  position: absolute;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease; }
+
+.mainnav a:before {
+  bottom: 100%;
+  display: block;
+  height: 3px;
+  width: 100%;
+  content: ""; }
+
+.mainnav a:after {
+  padding: 0.3em 0.8em;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  content: attr(data-hover);
+  color: white;
+  white-space: nowrap;
+  background-color: #7700FF; }
+
+.mainnav li:hover a,
+.mainnav .current a {
+  transform: translateY(100%); }
+
+.herowrap {
+  height: 460px;
+  background-color: #FFF6B7;
+  /*transition: all 0.3s;*/
+  background: #65FDF0;
+  background: -webkit-linear-gradient(legacy-direction(165deg), #65FDF0 10%, #1D6FA3 100%);
+  background: linear-gradient(165deg, #65FDF0 10%, #1D6FA3 100%);
+  text-align: center;
+  margin: 0px;
+  padding: 100px;
+  font-family: 'Baloo Tammudu', cursive; }
+
+.herocaption {
+  font-size: 24px;
+  color: #f0FFF6; }
+
+.cta {
+  font-size: 18px;
+  display: inline-block;
+  padding: 5px 10px 1px;
+  /*background: $link-color;*/
+  border: solid 3px #f9f9f9;
+  color: white;
+  border-radius: 20px;
+  margin: 15px 30px;
+  line-height: 2.7em;
+  font-size: 1.2em;
+  letter-spacing: 5px;
+  position: relative;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s; }
+
+.cta:hover {
+  /*CSS don't support transition on gradients
+  @include gradient(330deg, #1B0637 40%, #623b70 100%);*/
+  background: #7700FF;
+  margin-top: 12px;
+  box-shadow: 0px 37px 20px -20px rgba(0, 0, 0, 0.2);
+  transform: translate(0px, -5px) scale(1.02); }
+
+footer {
+  padding: 10px 35px;
+  color: #ccc;
+  display: block;
+  height: 80px;
+  margin-bottom: 0px;
+  /*transition: all 0.3s;*/
+  background: #1B0637;
+  background: -webkit-linear-gradient(legacy-direction(330deg), #1B0637 40%, #623b70 100%);
+  background: linear-gradient(330deg, #1B0637 40%, #623b70 100%); }

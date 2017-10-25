@@ -1,0 +1,10 @@
+@import 'mixins.scss';
+
+footer{
+	padding: 10px 35px;
+	color: #ccc;
+	display: block;
+	height: 80px;
+	margin-bottom: 0px;
+    @include gradient(330deg, #1B0637 40%, #623b70 100%);
+}
