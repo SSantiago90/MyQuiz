@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(partials());
 //Login path helper
 app.use(function(req,res,next){
-    if (!req.path.match(/\/login \|logout/)){
+    if (!req.path.match(/\/login/)){ 
         req.session.redir = req.path;
     }
     res.locals.session = req.session;

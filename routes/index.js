@@ -13,11 +13,11 @@ router.param('quizId', quizController.load);
 router.get('/quizes', quizController.index);
 router.get('/quizes/:quizId(\\d+)', 		quizController.question);
 router.get('/quizes/:quizId(\\d+)/answer',  quizController.answer);
-router.get('/quizes/new', 					quizController.new);
-router.post('/quizes/create', 				quizController.create);
-router.get('/quizes/:quizId(\\d+)/edit', 	quizController.edit);
-router.put('/quizes/:quizId(\\d+)', 		quizController.update);
-router.delete('/quizes/:quizId(\\d+)', 		quizController.delete);
+router.get('/quizes/new', 					sessionController.loginReq, quizController.new);
+router.post('/quizes/create', 				sessionController.loginReq, quizController.create);
+router.get('/quizes/:quizId(\\d+)/edit', 	sessionController.loginReq, quizController.edit);
+router.put('/quizes/:quizId(\\d+)', 		sessionController.loginReq, quizController.update);
+router.delete('/quizes/:quizId(\\d+)', 		sessionController.loginReq, quizController.delete);
 //Comments routes
 router.get('/quizes/:quizId(\\d+)/comments/new', 			commentController.new);
 router.post('/quizes/:quizId(\\d+)/comments',		commentController.create);

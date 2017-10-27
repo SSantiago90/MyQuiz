@@ -28,14 +28,9 @@
 					<% }; %>
 				</ul>
 			</nav>
-		</div>
-		<%if(typeof errors !== 'undefined') {
+		</div>		
+		<% if (typeof(errors) === undefined || null) {
 		console.log('Layout error');%>
-		<div class="hero">
-			<header class="main" id="h1">
-				<h2>myQuiz: El juego de Preguntas!</h2>
-			</header>
-		</div>
 		<section class="main errors">
 			<div id="errorLog">
 				<h5>¡Error al procesar la solicitud!</h5>
