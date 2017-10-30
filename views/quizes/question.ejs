@@ -6,11 +6,28 @@
 
 <div class="comentarios">
 	<h2>Comentarios</h2>
-	<%for(i in quiz.Comments){%>
-		<div class="comment">
-			<p> <%=quiz.Comments[i].texto%></p>
-		</div>
-	<% } %>
+	<%for(i in quiz.Comments){	
+		if (quiz.Comments[i].publicado || session.user){	
+		%>
+			<div class="comment">
+				<p><%=quiz.Comments[i].texto%></p>			
+				<% if (session.user){			
+
+					if(quiz.Comments[i].publicado){%>
+						<form method="POST" action="/quizes/<%= quiz.id %>/comments/<%=quiz.Comments[i].id%>?_method=PUT">
+							<input class='hidden' name='publicado' value='true' />
+							<input type="submit" value='Borrar' />
+						</form>
+					<%}else{%>
+						<form method="POST" action="/quizes/<%= quiz.id %>/comments/<%=quiz.Comments[i].id%>?_method=PUT">
+						<input class='hidden' name='publicado' value='true' />
+						    <input type="submit" value='Publicar' />
+						</form>
+					<%}
+				}%>	
+				</div>
+		<% }
+	}%>
 
 	<a href="/quizes/<%= quiz.id %>/comments/new">
 		<button>Nuevo Comentario</button>

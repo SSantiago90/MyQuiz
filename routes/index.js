@@ -9,6 +9,7 @@ router.get('/', function(req, res) {
   res.render('index', { title: 'MyQuiz' });
 });
 router.param('quizId', quizController.load);
+router.param('commentId', commentController.load);
 //Quizes routes
 router.get('/quizes', quizController.index);
 router.get('/quizes/:quizId(\\d+)', 		quizController.question);
@@ -21,6 +22,7 @@ router.delete('/quizes/:quizId(\\d+)', 		sessionController.loginReq, quizControl
 //Comments routes
 router.get('/quizes/:quizId(\\d+)/comments/new', 			commentController.new);
 router.post('/quizes/:quizId(\\d+)/comments',		commentController.create);
+router.put('/quizes/:quizId(\\d+)/comments/:commentId(\\d+)', sessionController.loginReq, commentController.publish);
 //Session routes
 router.get('/login',				sessionController.new);
 router.post('/login',				sessionController.create);

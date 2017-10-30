@@ -14,6 +14,10 @@ a {
   color: #ff6611;
   font-size: small; }
 
+.hidden {
+  display: none !important;
+  visibility: hidden; }
+
 img {
   max-height: 100%; }
 
@@ -92,7 +96,6 @@ input .hidden {
 .herowrap {
   height: 460px;
   background-color: #FFF6B7;
-  /*transition: all 0.3s;*/
   background: #65FDF0;
   background: -webkit-linear-gradient(legacy-direction(165deg), #65FDF0 10%, #1D6FA3 100%);
   background: linear-gradient(165deg, #65FDF0 10%, #1D6FA3 100%);
@@ -135,7 +138,6 @@ footer {
   display: block;
   height: 80px;
   margin-bottom: 0px;
-  /*transition: all 0.3s;*/
   background: #1B0637;
   background: -webkit-linear-gradient(legacy-direction(330deg), #1B0637 40%, #623b70 100%);
   background: linear-gradient(330deg, #1B0637 40%, #623b70 100%); }

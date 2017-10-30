@@ -6,11 +6,16 @@ module.exports = function(sequelize,DataTypes){
 			texto: {
 			 type: DataTypes.STRING,
 			 validate: {notEmpty: {msg: "Comentario invalido: comentario vacío."}}
+			},
+			publicado: {
+				type: DataTypes.BOOLEAN,
+				defaultValue: true
 			}
 			//usuario: {
 			 //type: DataTypes.STRING,
 			// validate: {notEmpty: {msg: "Error de usuario: usuario no autenticado"}}
 			//}
+
 		}
 	);
 }

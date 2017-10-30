@@ -18,6 +18,11 @@ a {
 	font-size: small;
 }
 
+.hidden{
+	display: none !important;
+	visibility:hidden;
+}
+
 img {
   max-height: 100%;
 }
