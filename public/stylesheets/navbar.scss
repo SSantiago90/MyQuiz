@@ -2,12 +2,18 @@ input .hidden{
   display:none;
 }
 
-#logout:after {
+.form-ínput{
+  text-decoration: none;
+  color: $link-color;  
+  border: none;  
+  background:none;
+}
+
+#logout-but:after {
   position: absolute;
   -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;
 }
-
 
 .header{
   display: grid;
@@ -25,10 +31,14 @@ input .hidden{
  align-self: end;
 }
 
-.mainnav {
+.mainnav{
   text-align: right;
+}
+
+.nav-link, .nav-link input{  
   text-transform: uppercase;
   font-weight: 500;
+  font: $base-font;
 }
 
 .mainnav * {
@@ -44,7 +54,7 @@ input .hidden{
   overflow: hidden;
 }
 
-.mainnav a{
+.nav-link{
   padding: 0.3em 0.8em;
   position: relative;
   display: inline-block;
@@ -53,22 +63,21 @@ input .hidden{
   text-decoration: none;
 }
 
-.mainnav a:before,
-.mainnav a:after {
+.nav-link:before,
+.nav-link:after{
   position: absolute;
   -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;
 }
 
-.mainnav a:before{
+.nav-link:before{
   bottom: 100%;
   display: block;
   height: 3px;
   width: 100%;
-  content: "";
 }
 
-.mainnav a:after{
+.nav-link:after{
   padding: 0.3em 0.8em;
   position: absolute;
   bottom: 100%;
@@ -80,6 +89,7 @@ input .hidden{
 }
 
 .mainnav li:hover a,
-.mainnav .current a {
+.mainnav .current a,
+.mainnav li:hover form>input{
   transform: translateY(100%);
 }

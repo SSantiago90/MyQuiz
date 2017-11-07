@@ -35,6 +35,12 @@ app.use(function(req,res,next){
     next()
 });
 
+//Helper Errores
+//app.use(function(req, res, next) {
+//
+//  next();
+//});
+
 app.use('/', routes);
 
 // catch 404 and forward to error handler
@@ -68,5 +74,13 @@ app.use(function(err, req, res, next) {
     });
 });
 
+
+app.use(function(err, req, res, next) {
+  if (res.headersSent) {
+    return next(err);
+  }
+
+  return res.status(err.status || HTTP_SERVER_ERROR).render('500');
+});
 
 module.exports = app;

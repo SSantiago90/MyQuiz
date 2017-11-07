@@ -5,6 +5,7 @@
 		<title>MyQuiz</title>
 		<link href="https://fonts.googleapis.com/css?family=Baloo+Tammudu" rel="stylesheet"> 
 		<link rel='stylesheet' href="/build/styles.css"/>
+		<script type="text/javascript" src="/javascripts/logoutHelper.js"></script>	
 	</head>
 	<body>
 		<div class="header">
@@ -15,32 +16,34 @@
 			</div>
 			<nav class="main" id="navbar" role="navigation">
 				<ul class="mainnav">
-					<li><a class="nav_link" data-hover="Inicio"href="/">Inicio</a></span></li>
-					<li><a class="nav_link" data-hover="Preguntas"href="/quizes">Preguntas</a></li>
-					<li><a class="nav_link" data-hover="Ayuda"href="/help" target:"_blank">Ayuda</a></li>
+					<li><a class="nav-link" data-hover="Inicio" href="/">Inicio</a></span></li>
+					<li><a class="nav-link" data-hover="Preguntas" href="/quizes">Preguntas</a></li>
+					<li><a class="nav-link" data-hover="Ayuda" href="/help" target:"_blank">Ayuda</a></li>
 					<% if(!session.user){ %>
-						<li><a class="nav_link login_link" data-hover="Login" href="/login">Login</a></li>
+						<li><a class="nav-link login_link" data-hover="Login" href="/login">Login</a></li>
 					<%}else{ %>
-						<li><form class="blank" method="post" action="/login?_method=delete">
-							<input type="text" name="logout" id="logout" value="true" style="display:none" class="hidden"/>
-							<input id="logout-but" class="nav_link login_link" data-hover="Logout" name="Logout" value="Logout" type="submit">
-						</form></li>
+						<li><a class="nav-link" id='logout-link' data-hover="Logout" href="">Logout</a></li>
+						<li>
+							<form id="logout-form" class="blank hidden" method="post" action="/login?_method=delete">
+								<input type="hidden" name="logout" id="logout" value="true"/>
+								<input name="Logout" value="Logout" type="submit"/>
+							</form>
+						</li>
 					<% }; %>
 				</ul>
 			</nav>
 		</div>		
-		<% if (typeof(errors) === undefined || null) {
-		console.log('Layout error');%>
-		<section class="main errors">
-			<div id="errorLog">
-				<h5>¡Error al procesar la solicitud!</h5>
-				<% for(var i in errors){ %>
-					<span><%= errors[i].message %></span><br>
-				<% } %>
-				</div>
-		</section>
-		<% } %>
-		<%if(typeof feedback!== 'undefined') {%>
+
+	 	<% if (typeof(errors) !== 'undefined') { %>
+     	<span id='ErrorMsgs'>
+        <ul>
+           <% for (var i in errors) { %>
+           <li><%= errors[i].message %></li>
+        <% } %>
+       </ul>
+      </span>
+    <% } %>
+	<%if(typeof feedback!== 'undefined') {%>
 		<section class="main feedback">
 			<div id="feedLog">
 				<h5>Hecho!</h5>
